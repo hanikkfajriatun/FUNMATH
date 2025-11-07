@@ -290,42 +290,59 @@
     <p>Learning Volume in English.</p>
   </header>
 
+<div class="profile-layout">
+  <div class="image-wrapper">
+    <div class="placeholder-circle">H</div>
+  </div>
+  
+  <div class="profile-info">
+    <h1>My Profile:</h1>
+    <p><strong>Nama:</strong> Hanik Fajriatun Khasanah</p>
+    <p><strong>NIM:</strong> B2B023022</p>
+    <p><strong>Program Studi:</strong> S1 Pendidikan Matematika</p>
+    <p><strong>Universitas Muhammadiyah Semarang</p>
+  </div>
+</div>
+
 <style>
-  /* 1. Pengaturan Tata Letak Utama (KOTAK) */
+  /* 1. Pengaturan Tata Letak Utama (KOTAK) - TETAP SAMA */
   .profile-layout {
     display: flex;
     align-items: center; 
     gap: 20px; 
     padding: 20px; 
-    
-    /* MODIFIKASI WARNA KOTAK */
-    background-color: #f8f8f8; /* Warna latar belakang abu-abu muda */
-    
-    border: 1px solid #ddd; /* Warna border diubah menjadi abu-abu terang */
+    background-color: #f8f8f8; 
+    border: 1px solid #ddd; 
     border-radius: 8px; 
     max-width: 500px;
     margin: 20px auto; 
-    
-    /* Efek Bayangan Tambahan */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
 
-  /* 2. Pengaturan Gambar Lingkaran */
-  .circular-image {
+  /* 2. Pengaturan Placeholder Lingkaran (BARU) */
+  .placeholder-circle {
     width: 100px; 
     height: 100px; 
-    object-fit: cover; 
     border-radius: 50%; 
-    display: block; 
-    border: 3px solid #dc3f8b; /* Garis tepi biru untuk mempertegas gambar */
+    background-color: #f973df; /* Warna latar belakang biru */
+    color: white; /* Warna teks putih */
+    font-size: 40px; /* Ukuran inisial */
+    font-weight: bold;
+    
+    /* Centering Inisial di tengah lingkaran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: 3px solid #f156c2; /* Menjaga konsistensi border */
   }
   
-  /* 3. Pengaturan Keterangan Profil */
+  /* 3. Pengaturan Keterangan Profil - TETAP SAMA */
   .profile-info h1 {
     margin-top: 0; 
     margin-bottom: 10px; 
     font-size: 1.5em;
-    color: #f493eb; 
+    color: #e249cb; 
   }
 
   .profile-info p {
@@ -339,21 +356,6 @@
     color: #333;
   }
 </style>
-
-<div class="profile-layout">
-  <div class="image-wrapper">
-    <img src="hanik.jpg" alt="My photos" class="circular-image">
-  </div>
-  
-  <div class="profile-info">
-    <h1>My Profile:</h1>
-    <p><strong>Nama:</strong> Hanik Fajriatun Khasanah</p>
-    <p><strong>NIM:</strong> B2B023022</p>
-    <p><strong>Program Studi:</strong> S1 Pendidikan Matematika</p>
-    <p><strong>Universitas Muhammadiyah Semarang</p>
-  </div>
-</div>
-
   <main class="container">
     <div class="card">
       <div class="card-icon">
