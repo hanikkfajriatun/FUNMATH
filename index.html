@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materi Matematika Interaktif</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <style>
+    /* CSS LENGKAP DENGAN ANIMASI */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      /* == PERUBAHAN WARNA == */
+      background: linear-gradient(-45deg, #FFF8FA, #FFE3E9, #FFC1CC, #FFE3E9, #FFF8FA);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      color: #6D434F; /* Teks utama jadi gelap agar terbaca */
+      /* ======================= */
+      position: relative; 
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header, .container, footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      /* == PERUBAHAN WARNA == */
+      color: #E9879C; /* Rose Pink */
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(233, 135, 156, 0.5); /* Pink shadow */
+      /* ======================= */
+    }
+
+    header p {
+      /* == PERUBAHAN WARNA == */
+      color: #8E6D78; /* Rose-brown sekunder */
+      /* ======================= */
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      /* == PERUBAHAN WARNA == */
+      background: rgba(255, 255, 255, 0.6); /* Putih transparan */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(233, 135, 156, 0.3); /* Border pink tipis */
+      /* ======================= */
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 25px;
+      transition: transform 0.3s ease, 
+                  box-shadow 0.3s ease, 
+                  border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      /* == PERUBAHAN WARNA == */
+      box-shadow: 0 12px 30px rgba(233, 135, 156, 0.2); /* Shadow pink */
+      border-color: #E9879C; /* Border pink lebih jelas saat hover */
+      /* ======================= */
+    }
+
+    .card-icon {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      /* == PERUBAHAN WARNA == */
+      background: rgba(233, 135, 156, 0.1); /* Latar ikon pink muda */
+      border: 1px solid rgba(233, 135, 156, 0.7); /* Border ikon pink */
+      color: #E9879C; /* Ikon pink */
+      box-shadow: 0 0 15px rgba(233, 135, 156, 0.3); /* Shadow ikon pink */
+      /* ======================= */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .card-content {
+      flex-grow: 1;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      /* == PERUBAHAN WARNA == */
+      color: #E9879C; /* Judul card pink */
+      /* ======================= */
+      font-weight: 600;
+    }
+
+    .card p {
+      /* == PERUBAHAN WARNA == */
+      color: #6D434F; /* Teks paragraf gelap */
+      /* ======================= */
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .link-btn {
+      display: inline-block;
+      /* == PERUBAHAN WARNA == */
+      background: #E9879C; /* Tombol pink */
+      color: #fff; /* Teks tombol putih (tetap) */
+      /* ======================= */
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .link-btn:hover {
+      /* == PERUBAHAN WARNA == */
+      background: #D46A83; /* Tombol pink lebih gelap saat hover */
+      /* ======================= */
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      /* == PERUBAHAN WARNA == */
+      color: #8E6D78; /* Teks footer rose-brown sekunder */
+      /* ======================= */
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+
+
+    /* ================================== */
+    /* == ANIMASI TABUNG MENGAMBANG == */
+    /* ================================== */
+
+    .background-shapes {
+      position: absolute; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; 
+      overflow: hidden; 
+    }
+
+    .cylinder-shape {
+      position: absolute;
+      bottom: -150px; 
+      
+      width: 50px;
+      height: 100px;
+      /* == PERUBAHAN WARNA == */
+      /* Garis pink tipis transparan */
+      border-left: 2px solid rgba(233, 135, 156, 0.15);
+      border-right: 2px solid rgba(233, 135, 156, 0.15);
+      /* ======================= */
+      
+      animation: floatUp 20s linear infinite;
+    }
+
+    .cylinder-shape::before {
+      content: '';
+      position: absolute;
+      top: -10px; 
+      left: -1px;
+      width: 100%;
+      height: 20px; 
+      /* == PERUBAHAN WARNA == */
+      border: 2px solid rgba(233, 135, 156, 0.15);
+      /* ======================= */
+      border-radius: 50%; 
+    }
+
+    .cylinder-shape::after {
+      content: '';
+      position: absolute;
+      bottom: -10px; 
+      left: -1px;
+      width: 100%;
+      height: 20px;
+      /* == PERUBAHAN WARNA == */
+      border: 2px solid rgba(233, 135, 156, 0.15);
+      /* ======================= */
+      border-radius: 50%;
+    }
+
+    /* Keyframes untuk animasi mengambang */
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.5;
+      }
+      to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0; 
+      }
+    }
+
+    /* Pengaturan posisi & kecepatan acak */
+    .cylinder-shape:nth-child(1) {
+      left: 10%;
+      animation-duration: 25s; 
+      animation-delay: 0s;
+      transform: scale(0.6); 
+    }
+    .cylinder-shape:nth-child(2) {
+      left: 20%;
+      animation-duration: 15s; 
+      animation-delay: 3s;
+      transform: scale(0.8);
+    }
+    .cylinder-shape:nth-child(3) {
+      left: 35%;
+      animation-duration: 20s;
+      animation-delay: 7s;
+      transform: scale(0.5);
+    }
+    .cylinder-shape:nth-child(4) {
+      left: 50%;
+      animation-duration: 18s;
+      animation-delay: 1s;
+      transform: scale(0.7);
+    }
+    .cylinder-shape:nth-child(5) {
+      left: 65%;
+      animation-duration: 22s;
+      animation-delay: 5s;
+      transform: scale(0.8);
+    }
+    .cylinder-shape:nth-child(6) {
+      left: 80%;
+      animation-duration: 16s;
+      animation-delay: 8s;
+      transform: scale(0.6);
+    }
+    .cylinder-shape:nth-child(7) {
+      left: 90%;
+      animation-duration: 24s;
+      animation-delay: 2s;
+      transform: scale(0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-shapes">
+    <span class="cylinder-shape"></span>
+    <span class="cylinder-shape"></span>
+    <span class="cylinder-shape"></span>
+    <span class="cylinder-shape"></span>
+    <span class="cylinder-shape"></span>
+    <span class="cylinder-shape"></span>
+    <span class="cylinder-shape"></span>
+  </div>
+
+  <header>
+    <h1>Interactive Math Learning Materials</h1>
+    <p>Learning Volume in English.</p>
+  </header>
+
+<style>
+  /* 1. Pengaturan Tata Letak Utama (KOTAK) */
+  .profile-layout {
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+    padding: 20px; 
+    
+    /* MODIFIKASI WARNA KOTAK */
+    background-color: #f8f8f8; /* Warna latar belakang abu-abu muda */
+    
+    border: 1px solid #ddd; /* Warna border diubah menjadi abu-abu terang */
+    border-radius: 8px; 
+    max-width: 500px;
+    margin: 20px auto; 
+    
+    /* Efek Bayangan Tambahan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+
+  /* 2. Pengaturan Gambar Lingkaran */
+  .circular-image {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    display: block; 
+    border: 3px solid #dc3f8b; /* Garis tepi biru untuk mempertegas gambar */
+  }
+  
+  /* 3. Pengaturan Keterangan Profil */
+  .profile-info h1 {
+    margin-top: 0; 
+    margin-bottom: 10px; 
+    font-size: 1.5em;
+    color: #f493eb; 
+  }
+
+  .profile-info p {
+    margin: 5px 0; 
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .profile-info strong {
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+
+<div class="profile-layout">
+  <div class="image-wrapper">
+    <img src="hanik.jpg" alt="My photos" class="circular-image">
+  </div>
+  
+  <div class="profile-info">
+    <h1>My Profile:</h1>
+    <p><strong>Nama:</strong> Hanik Fajriatun Khasanah</p>
+    <p><strong>NIM:</strong> B2B023022</p>
+    <p><strong>Program Studi:</strong> S1 Pendidikan Matematika</p>
+    <p><strong>Universitas Muhammadiyah Semarang</p>
+  </div>
+</div>
+
+  <main class="container">
+    <div class="card">
+      <div class="card-icon">
+        <i class="fa-solid fa-play-circle"></i>
+      </div>
+      <div class="card-content">
+        <h2>1. VIDEO LEARNING</h2>
+        <p>This learning video teaches the concept of the volume of a cylinder by focusing on how to avoid the three most common mistakes students often make.</p>
+        <a href="https://drive.google.com/file/d/1XkkG-HnXfSuZ_hShhmgd3MnUAX02U5na/view?usp=drivesdk" target="_blank" class="link-btn">Open ⏭</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <i class="fa-solid fa-pencil-alt"></i>
+      </div>
+      <div class="card-content">
+        <h2>2. VIDEO LEARNING EVALUATION QUESTIONNAIRE</h2>
+        <p>This questionnaire is designed to evaluate the learning video. Please give your honest opinions about its clarity, usefulness, and overall quality. Your feedback will help improve future videos.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXwGSNf0UOatPt7aFJbca-d5kY4lhDg5Lgiz8SiHP3vZRLAg/viewform?usp=header" target="_blank" class="link-btn">Open ⏭</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <i class="fa-solid fa-gamepad"></i>
+      </div>
+      <div class="card-content">
+        <h2>3. GAME</h2>
+        <p>This example problem is designed to build confidence by guiding students step-by-step through calculating a cylinder's volume, while actively pointing out and neutralizing common traps.</p>
+        <a href="https://hanikkfajriatun.github.io/Phi-Perfect/" target="_blank" class="link-btn">Start ⏭</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <i class="fa-solid fa-vial-circle-check"></i>
+      </div>
+      <div class="card-content">
+        <h2>4. QUIZ</h2>
+        <p>This example problem is designed to build confidence by guiding students step-by-step through calculating a cylinder's volume, while actively pointing out and neutralizing common traps.</p>
+        <a href="https://hanikkfajriatun.github.io/Cylinder-Mission./" target="_blank" class="link-btn">Start ⏭</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 — Hanik Fajriatun Khasanah | Math Education-Universitas Muhammadiyah Semarang.
+  </footer>
+</body>
+</html>
